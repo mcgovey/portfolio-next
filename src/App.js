@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux';
+import * as actions from './actions'
 
 class App extends Component {
   render() {
@@ -18,4 +20,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect((state) => {return state},actions)(App);
