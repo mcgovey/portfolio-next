@@ -1,0 +1,93 @@
+[
+	{
+	  "id": 0,
+	  "order": 0,
+	  "project-name": "Welcome to Kevin McGovern's portfolio",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 1
+	},
+	{
+	  "id": 1,
+	  "order": 1,
+	  "project-name": "2018 World Cup Team Travel",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 0
+	},
+	{
+	  "id": 2,
+	  "order": 2,
+	  "project-name": "C40 Cities Climate Change Hackathon Submission",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 0
+	},
+	{
+	  "id": 3,
+	  "order": 3,
+	  "project-name": "Marey Train Plot",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 0
+	},
+	{
+	  "id": 4,
+	  "order": 4,
+	  "project-name": "Bullet Chart Open Source Extension",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 0
+	},
+	{
+	  "id": 5,
+	  "order": 5,
+	  "project-name": "Gannt Chart Open Source Extension",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 0
+	},
+	{
+	  "id": 6,
+	  "order": 6,
+	  "project-name": "FP Lead Tracker",
+	  "link_demo": "",
+	  "link_blog": "",
+	  "link_source": "",
+	  "purpose": "",
+	  "method": "",
+	  "outcome": "",
+	  "num_pictures": "",
+	  "is_intro": 0
+	}
+   ]

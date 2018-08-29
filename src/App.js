@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
-import {connect} from 'react-redux';
 import * as actions from './actions'
 
 class App extends Component {
   render() {
+    console.log('props', this.props)
     return (
       <div className="App">
         <header className="App-header">

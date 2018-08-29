@@ -1,30 +1,34 @@
-export const SELECT_CHANNEL = 'SELECT_CHANNEL';
-export const REQUEST_POSTS = 'REQUEST_POSTS';
-export const RECEIVE_POSTS = 'RECEIVE_POSTS';
-const MY_API_KEY = 'c39a26d9c12f48dba2a5c00e35684ecc';
-export const getChannel = channel => ({
-type: SELECT_CHANNEL,
-channel,
-});
-export const requestPosts = () => ({
-type: REQUEST_POSTS,
-});
-export const receivedPosts = json => ({
-type: RECEIVE_POSTS,
-json: json.articles,
-});
-export function fetchPosts(channel) {
- return function (dispatch) {
-   dispatch(requestPosts());
-   return fetch(`https://newsapi.org/v1/articles? 
-      source=${channel}&apiKey=${MY_API_KEY}`)
-   .then(
-      response => response.json(),
-      error => console.log('An error occurred.', error),
-  )
-   .then((json) => {
-      dispatch(receivedPosts(json));
-   },
-  );
- };
+//action to indicate that our call for projects has started
+export let startProjectPull = () => {
+  return {
+      type : 'Start_Project_Pull'
+  }
+}
+
+//action to indicate we have received all our data from the api
+export let endProjectPull = (projArray) => {
+  return {
+      type : 'End_Project_Pull',
+      projArray
+  }
+}
+
+
+//fetch the list of our developers
+export let fetchProjs = () => {
+  return (dispatch) => {
+      dispatch(startProjectPull())
+
+      let reader = new FileReader();
+      reader.onload = function(e) {
+      // Use reader.result
+      alert(reader.result)
+      }
+      reader.readAsText('../resources/projects.csv');
+
+      console.log('reader', reader);
+
+      dispatch(endProjectPull( ))
+
+  }
 }
