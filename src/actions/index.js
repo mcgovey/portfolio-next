@@ -34,8 +34,9 @@ export let fetchProjs = () => {
 }
 
 export function selectProject(e) {
+	// console.log(e.currentTarget.dataset.id)
   return {
     type: 'SELECT_PROJ',
-    payload: e
+    payload: e.currentTarget.dataset.id
   }
 }

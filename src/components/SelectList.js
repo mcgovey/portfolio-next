@@ -8,15 +8,21 @@ class SelectList extends Component {
 
 	_renderProjects() {
 		console.log('project list',this.props)
-		const { projectList } = this.props;
+		const { projectList, selectProject } = this.props;
 		return (
-			<div>
+			<ul>
 				{projectList.map((d) => {
 					return (
-						<button key={d.id}>{d['project-name']}</button>
+						<li 
+							key={d.id}
+							data-id={d.id} 
+							onClick={selectProject}
+						>
+							{d['project-name']}
+						</li>
 					)
 				})}
-			</div>
+			</ul>
 		) 
 	}
 	render() {
