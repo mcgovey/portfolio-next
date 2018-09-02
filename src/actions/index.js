@@ -32,3 +32,10 @@ export let fetchProjs = () => {
 
   }
 }
+
+export function selectProject(e) {
+  return {
+    type: 'SELECT_PROJ',
+    payload: e
+  }
+}
