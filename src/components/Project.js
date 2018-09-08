@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import compose from 'recompose/compose';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
-export class Project extends Component {
-  componentWillMount(){
-    this.props.fetchProjs();
-  }
+const styles = theme => ({
+  toolbar: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing.unit * 3,
+  },
+});
 
-//   renderDev(dev){
-//     return (
-//       <div className="dev-card">
-//      <h4 className="dev-title">  <a href={dev.html_url} target="_blank"> {dev.login}</a></h4>
-//   </div> 
-//     )
+class Project extends Component {
 
-//   }
 	render() {
     console.log('props', this.props);
-    return <p>Loading</p>
-    // let {devs} = this.props
-    // if(devs.isFetching == true){
-    //   return <p>Loading</p>
-    // }
-    // else (devs.isFetching == false && devs.devsArray.length >= 1){
-    //   return(
-    //     <div>
-    //       <div className="dev-list">
-    //         {devs.devsArray.map(this.renderDev)}
-    //       </div>
-    //     </div>
-    //   )
-    // }
+    const { classes } = this.props;
+    return (
+			<main className={classes.content}>
+        <div className={classes.toolbar} />
+        <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+			</main>
+		)
   }
 }
 
@@ -39,4 +39,8 @@ function mapStateToProps(state) {
     projectList: state.projectState.projectList,
 	};
 }
-export default connect(mapStateToProps, mapDispatchToProps)(ReactMapGL);
+
+export default compose(
+	withStyles(styles, { withTheme: true }),
+	connect(mapStateToProps)
+)(Project);

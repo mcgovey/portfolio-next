@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -39,14 +38,6 @@ const iconDict = {
 const drawerWidth = 240;
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    height: 440,
-    zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex',
-  },
   menuButton: {
     marginLeft: 12,
     marginRight: 36,
@@ -129,10 +120,6 @@ class ProjectListDrawer extends React.Component {
           <Divider />
           <List>{this._renderProjList()}</List>
         </Drawer>
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
-        </main>
       </div>
     );
   }
