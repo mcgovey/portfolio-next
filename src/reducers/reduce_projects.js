@@ -11,12 +11,13 @@ const ProjectReducer = (state={isFetching : false, projectList : []},action) => 
       projArray : action.devsArray
     }
     case 'SELECT_PROJ': {
+			console.log('action', action);
       const selectedProject = state.projectList.filter(d => {
         return d.id === +action.payload;
       });
       return {
         ...state,
-        selectedProject : selectedProject
+        selectedProject : selectedProject[0]
       };
     }
     

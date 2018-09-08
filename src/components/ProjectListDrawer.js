@@ -22,7 +22,7 @@ import TuneIcon from '@material-ui/icons/Tune';
 import TimerIcon from '@material-ui/icons/Timer';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 
-import { closeDrawer } from '../actions/index';
+import { closeDrawer, selectProject } from '../actions/index';
 
 
 const iconDict = {
@@ -82,10 +82,17 @@ const styles = theme => ({
 class ProjectListDrawer extends React.Component {
 
 	_renderProjList() {
-		const { projectList } = this.props;
+		const { projectList, selectProject, selectedProject } = this.props;
+		console.log('selectedProject', selectedProject);
 		const projectListDiv = projectList.map((project) => {
 			return (
-				<ListItem key={project.id} button>						
+				<ListItem 
+					key={project.id} 
+					button
+					data-id={project.id}
+					onClick={selectProject}
+					selected={selectedProject && selectedProject.id === project.id}
+				>
 						<ListItemIcon>
 							{iconDict[project.icon_name]}
 						</ListItemIcon>
@@ -133,12 +140,14 @@ ProjectListDrawer.propTypes = {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     closeDrawer: closeDrawer,
+    selectProject: selectProject,
   },dispatch);
 }
 function mapStateToProps(state) {
   return{
 		openState: state.uiState.drawerOpen,
 		projectList: state.projectState.projectList,
+		selectedProject: state.projectState.selectedProject,
   };
 }
 export default compose(
