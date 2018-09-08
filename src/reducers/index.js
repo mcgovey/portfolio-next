@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-// import Immutable from 'immutable';
 import ProjectReducer from './reduce_projects';
+import UIReducer from './reduce_UI';
 
 const rootReducer = combineReducers({
-  projectState: ProjectReducer,
+	projectState: ProjectReducer,
+	uiState: UIReducer,
 });
-console.log('reducers combined');
+// console.log('reducers combined');
 export default rootReducer;

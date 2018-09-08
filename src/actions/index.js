@@ -37,6 +37,20 @@ export function selectProject(e) {
 	// console.log(e.currentTarget.dataset.id)
   return {
     type: 'SELECT_PROJ',
-    payload: e.currentTarget.dataset.id
+    payload: e.currentTarget.dataset.id,
   }
+}
+
+export function openDrawer() {
+	return {
+		type: 'OPEN_DRAWER',
+		payload: true,
+	}
+}
+
+export function closeDrawer() {
+	return {
+		type: 'CLOSE_DRAWER',
+		payload: false,
+	}
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../actions/index'
 
 export class Project extends Component {
   componentWillMount(){
@@ -34,5 +33,10 @@ export class Project extends Component {
   }
 }
 
-
-export default connect((state) => {return state},actions)(Project)
+function mapStateToProps(state) {
+	return {
+    selectedProject: state.projectState.selectedProject,
+    projectList: state.projectState.projectList,
+	};
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ReactMapGL);

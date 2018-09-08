@@ -3,12 +3,14 @@ import projData from '../resources/projects';
 
 function hydrate(usePrevious = null) {
   if(!usePrevious){
-    // console.log('all layers', projData);
     return {
 	    projectState: {
         selectedProject: null,
-        projectList: projData
-      }
+        projectList: projData,
+			},
+			uiState: {
+				drawerOpen: false,
+			}
     };
   }
 }
