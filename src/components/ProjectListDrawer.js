@@ -15,16 +15,26 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-
-import { loadIcons } from '../utilities/dynamic_import';
-// import SendIcon from '@material-ui/icons/Send';
-
+import HomeIcon from '@material-ui/icons/Home';
+import CloudIcon from '@material-ui/icons/Cloud';
+import FlightIcon from '@material-ui/icons/Flight';
+import TrainIcon from '@material-ui/icons/Train';
+import TuneIcon from '@material-ui/icons/Tune';
+import TimerIcon from '@material-ui/icons/Timer';
+import LocationCityIcon from '@material-ui/icons/LocationCity';
 
 import { closeDrawer } from '../actions/index';
 
+
+const iconDict = {
+	'home': <HomeIcon />,
+	'cloud': <CloudIcon />,
+	'flight': <FlightIcon />,
+	'train': <TrainIcon />,
+	'tune': <TuneIcon />,
+	'timer': <TimerIcon />,
+	'location_city': <LocationCityIcon />,
+}
 
 const drawerWidth = 240;
 
@@ -78,63 +88,25 @@ const styles = theme => ({
   },
 });
 
-class ProjectListDrawer extends React.Component {  
-	state = {
-		AsyncComponent: () => <InboxIcon />,
-		LoadedComponent: false,
-	};
-
-	async componentDidMount() {
-		const module = await import('@material-ui/icons/Send');
-		const AsyncComponent = module.default;
-		const LoadedComponent = true;
-		this.setState({ AsyncComponent, LoadedComponent });
-	}
+class ProjectListDrawer extends React.Component {
 
 	_renderProjList() {
 		const { projectList } = this.props;
-		const { AsyncComponent, LoadedComponent } = this.state;
-		console.log('icon', AsyncComponent);
 		const projectListDiv = projectList.map((project) => {
-			
 			return (
-				<ListItem key={project.id} button>
-					{LoadedComponent===true ? (<ListItemIcon>
-						{AsyncComponent}
-					</ListItemIcon>) : ''}
+				<ListItem key={project.id} button>						
+						<ListItemIcon>
+							{iconDict[project.icon_name]}
+						</ListItemIcon>
 					<ListItemText primary={project['project-name']} />
 				</ListItem>
 			)
 		})
-		return (<div>
-			{projectListDiv}
-		</div>);
-		// return (<div>
-		// 	<ListItem button>
-		// 		<ListItemIcon>
-		// 			<InboxIcon />
-		// 		</ListItemIcon>
-		// 		<ListItemText primary="Inbox" />
-		// 	</ListItem>
-		// 	<ListItem button>
-		// 		<ListItemIcon>
-		// 			<StarIcon />
-		// 		</ListItemIcon>
-		// 		<ListItemText primary="Starred" />
-		// 	</ListItem>
-		// 	<ListItem button>
-		// 		<ListItemIcon>
-		// 			<SendIcon />
-		// 		</ListItemIcon>
-		// 		<ListItemText primary="Send mail" />
-		// 	</ListItem>
-		// 	<ListItem button>
-		// 		<ListItemIcon>
-		// 			<DraftsIcon />
-		// 		</ListItemIcon>
-		// 		<ListItemText primary="Drafts" />
-		// 	</ListItem>
-		// </div>);
+		return (
+			<div>
+				{projectListDiv}
+			</div>
+		);
 	}
 
   render() {
