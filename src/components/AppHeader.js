@@ -18,14 +18,14 @@ import { openDrawer } from '../actions/index';
 const drawerWidth = 240;
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    height: 440,
-    zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex',
-  },
+  // root: {
+  //   flexGrow: 1,
+  //   height: 440,
+  //   zIndex: 1,
+  //   overflow: 'hidden',
+  //   position: 'relative',
+  //   display: 'flex',
+  // },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
