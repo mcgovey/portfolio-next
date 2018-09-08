@@ -23,11 +23,11 @@ class Project extends Component {
 
 	render() {
     console.log('props', this.props);
-    const { classes } = this.props;
+    const { classes, selectedProject } = this.props;
     return (
 			<main className={classes.content}>
         <div className={classes.toolbar} />
-        <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+        <Typography noWrap>{selectedProject['project-name']}</Typography>
 			</main>
 		)
   }
@@ -36,7 +36,6 @@ class Project extends Component {
 function mapStateToProps(state) {
 	return {
     selectedProject: state.projectState.selectedProject,
-    projectList: state.projectState.projectList,
 	};
 }
 

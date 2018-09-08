@@ -5,7 +5,7 @@ function hydrate(usePrevious = null) {
   if(!usePrevious){
     return {
 	    projectState: {
-        selectedProject: null,
+        selectedProject: projData[0],
         projectList: projData,
 			},
 			uiState: {
